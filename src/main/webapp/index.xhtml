@@ -3,64 +3,89 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<title>DashBoard</title>
+	<link rel="stylesheet" type="text/css" href="css/dashboardStyle.css" />	
 </h:head>
 <h:body>
-	<p:layout fullPage="true">
-		<p:layoutUnit position="west" size="245" style="background: #0066ff">
+
+<p:layout fullPage="true">
+
+		<!-- Menu da Parte de Cima -->
+		<center>
+		<p:layoutUnit position="north" gutter="0" size="49" resizable="true"
+			styleClass="layoutUnit">
+			<p:panelGrid styleClass="painelGrid" columns="4">
+				<p:outputLabel for="option1" value="Option1:"/>
+				<p:selectOneMenu id="option1" value="#{selectOneMenuView.console}"
+					style="width:125px">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+					<f:selectItem itemLabel="PS4" itemValue="PS4" />
+					<f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+				</p:selectOneMenu>
+				<p:outputLabel for="option2" value="Option2:"/>
+				<p:selectOneMenu id="option2" value="#{selectOneMenuView.console}"
+					style="width:125px">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+					<f:selectItem itemLabel="PS4" itemValue="PS4" />
+					<f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+				</p:selectOneMenu>
+			</p:panelGrid>
+		</p:layoutUnit>
+		</center>
+
+
+
+		<!-- Parte Central Graficos-->
+		<p:layoutUnit position="center" style="border:none;" size="200" resizable="true"
+styleClass="layoutUnit">
 			<h:form>
-				<p:menu>
-					<p:submenu label="Contatos">
-						<p:menuitem value="Novo Contato" />
-						<p:menuitem value="Listar Contatos" />
-						<p:menuitem value="Adicionando"></p:menuitem>
-					</p:submenu>
-				</p:menu>
+				<center>
+					<p:growl id="growl" showDetail="true" />
+					<h:panelGrid columns="2" columnClasses="left,right" styleClass="panelGridMain">
+						<ui:include src="/Grafico1.xhtml" />
+						<ui:include src="/Grafico2.xhtml" />
+						<ui:include src="/Grafico3.xhtml" />
+						<ui:include src="/Grafico4.xhtml" />
+					</h:panelGrid>
+				</center>
 			</h:form>
 		</p:layoutUnit>
 
-		<p:layoutUnit position="center" size="220">
 
-			<h:form>
-				<p:growl id="growl" showDetail="true" />
 
-				<h:panelGrid columns="2" columnClasses="left,right"
-					style="width:100%">
-					<p:chart type="pie" model="#{chartView.pieModel1}"
-						style="width:400px;height:300px">
-						<p:ajax event="itemSelect" listener="#{chartView.itemSelect}"
-							update="growl" />
-					</p:chart>
 
-					<p:chart type="bar" model="#{chartView.barModel}"
-						style="width:400px;height:300px">
-						<p:ajax event="itemSelect" listener="#{chartView.itemSelect}"
-							update="growl" />
-					</p:chart>
-										<p:chart type="pie" model="#{chartView.pieModel1}"
-						style="width:400px;height:300px">
-						<p:ajax event="itemSelect" listener="#{chartView.itemSelect}"
-							update="growl" />
-					</p:chart>
-
-					<p:chart type="bar" model="#{chartView.barModel}"
-						style="width:400px;height:300px">
-						<p:ajax event="itemSelect" listener="#{chartView.itemSelect}"
-							update="growl" />
-					</p:chart>
-					
-				</h:panelGrid>
-
-			</h:form>
-
-			<!-- 			<ui:insert name="centro"> -->
-			<!-- 				INDEX -->
-			<!-- 			</ui:insert> -->
+		<!-- Menu da Parte de Baixo -->
+		<center>
+		<p:layoutUnit position="south" gutter="0" collapsible="true"  size="48" resizable="true"
+			styleClass="layoutUnit">
+			<p:panelGrid styleClass="painelGrid" columns="2">
+				<p:outputLabel for="option3" value="Option3:"/>
+				<p:selectOneMenu id="option3" value="#{selectOneMenuView.console}"
+					style="width:125px">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+					<f:selectItem itemLabel="PS4" itemValue="PS4" />
+					<f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+				</p:selectOneMenu>
+			</p:panelGrid>
 		</p:layoutUnit>
-	</p:layout>
+		</center>
+</p:layout>
+
+
 
 </h:body>
 </html>
-<!-- action="novocontato" -->
+
+				<!-- 				<p:menu> -->
+				<!-- 					<p:submenu label="Contatos"> -->
+				<!-- 						<p:menuitem value="Novo Contato" /> -->
+				<!-- 						<p:menuitem value="Listar Contatos" /> -->
+				<!-- 						<p:menuitem value="Adicionando"></p:menuitem> -->
+				<!-- 					</p:submenu> -->
+				<!-- 				</p:menu> -->

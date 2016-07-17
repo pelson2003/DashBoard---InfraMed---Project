@@ -1,0 +1,22 @@
+.panelGridMain {
+	margin: 0 auto;
+	border-color: gray;
+	border-width: medium;
+	/* width: 100%; */
+}
+
+
+.layoutUnit {
+	vertical-align: middle;
+	border-color: gray;
+	border-width: medium;
+}
+
+.painelGrid tr, .painelGrid td{
+	border: none !important;
+	text-align: center !important;
+	vertical-align: middle !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;	
+}
+

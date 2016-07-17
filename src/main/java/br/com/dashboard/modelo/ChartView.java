@@ -1,13 +1,14 @@
-package br.com.caelum.financas.modelo;
+package br.com.dashboard.modelo;
 
+
+import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
-import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+
 import org.primefaces.event.ItemSelectEvent;
- 
 import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.BarChartModel;
@@ -15,6 +16,7 @@ import org.primefaces.model.chart.ChartSeries;
 import org.primefaces.model.chart.PieChartModel;
  
  
+@SuppressWarnings("serial")
 @ManagedBean
 public class ChartView implements Serializable {
  

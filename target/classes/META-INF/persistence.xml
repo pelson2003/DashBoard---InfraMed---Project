@@ -6,10 +6,10 @@
 	<persistence-unit name="dashboard" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-		<class> br.com.caelum.financas.modelo.Conta</class>
+		<class> br.com.dashboard.modelo.Brands</class>
 
 		<!-- <properties> -->
-		<!-- <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/financas" 
+		<!-- <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/brands" 
 			/> -->
 		<!-- <property name="javax.persistence.jdbc.password" value="06122014" 
 			/> -->
@@ -26,7 +26,7 @@
 		<properties>
 			<!-- Propriedades JDBC -->
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/financas" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/brands" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="06122014" />
 			<!-- Configurações específicas do Hibernate -->

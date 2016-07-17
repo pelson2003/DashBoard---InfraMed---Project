@@ -1,31 +1,52 @@
 package br.com.caelum.financas.teste;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import java.util.List;
 
-import br.com.caelum.financas.modelo.Conta;
+import javax.persistence.EntityManager;
+
+import br.com.dashboard.dao.BrandsDAO;
+import br.com.dashboard.dao.ConexaoUtil;
+import br.com.dashboard.modelo.Brands;
 
 public class TesteJPA {
 public static void main(String[] args) {
 	
-	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("dashboard");
+	EntityManager emanager = ConexaoUtil.criarEntityManager();
 	
-	EntityManager manager = entityManagerFactory.createEntityManager();
+	//Criando uma Brand
+	Brands brands = new Brands();
+	brands.setName("Adidas");
+	brands.setQt_vendida(400);
 	
-	Conta conta = new Conta();
-	conta.setTitular("TestePostgress");
-	conta.setBanco("HSBC");
-	conta.setNumero("123345");
-	conta.setAgencia("321");
+	//Salvando uma Brand
+	//	manager.getTransaction().begin();
+	//	manager.persist(brands);
+	//	manager.getTransaction().commit();
+
 	
-	manager.getTransaction().begin();
+	BrandsDAO brandsDAO = new BrandsDAO(emanager);
 	
-	manager.persist(conta);
+	//Buscar por ID
+	Brands procuraBrandPorID = brandsDAO.buscarPorID(1);
+	System.out.println(procuraBrandPorID.getName());
 	
-	manager.getTransaction().commit();
+	//BuscaTodos
+	List<Brands> todasAsBrands = brandsDAO.buscarTodos();
+	for(Brands brand : todasAsBrands ){
+		System.out.println(brand.getId());
+		System.out.println(brand.getName());
+		System.out.println(brand.getQt_vendida());
+	}
 	
-	manager.close();
+	
+	//Buscar por Nome
+	Brands procuraBrandPorName = brandsDAO.buscarPorName("Rebook");
+	System.out.println(procuraBrandPorName.getName());
+		
+	
+	
+	
+	
 }
 }
  
